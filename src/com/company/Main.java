@@ -19,5 +19,8 @@ public class Main {
         me.pet.takeForAWalk();
 
         me.pet.feed();
+
+        Car passat = new Car("Volkswagen","Passat",1984,1.9,"Red", 14000.0);
+        me.car = passat;
     }
 }
