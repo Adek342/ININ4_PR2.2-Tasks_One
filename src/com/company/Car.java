@@ -16,4 +16,8 @@ public class Car {
         this.colour = colour;
         this.value = value;
     }
+
+    public String toString() {
+        return mark + " " + model + " " + " " + yearOfProduction;
+    }
 }
