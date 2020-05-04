@@ -22,5 +22,11 @@ public class Main {
 
         Car passat = new Car("Volkswagen","Passat",1984,1.9,"Red", 14000.0);
         me.car = passat;
+
+        System.out.println("");
+
+        me.getSalary();
+        me.setSalary(6000.0);
+        me.getSalary();
     }
 }
