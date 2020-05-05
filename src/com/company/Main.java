@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.devices.Car;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -20,7 +22,7 @@ public class Main {
 
         me.pet.feed();
 
-        Car passat = new Car("Volkswagen", "Passat", 1984, 1.9, "Red", 14000.0);
+        Car car1 = new Car("Volkswagen", "Passat", 1984, 1.9, "Red", 14000.0);
 
         System.out.println("");
 
@@ -30,10 +32,20 @@ public class Main {
 
         System.out.println("");
 
-        me.setCar(passat);
+        me.setCar(car1);
         me.setSalary(6000.0);
-        me.setCar(passat);
+        me.setCar(car1);
         me.setSalary(16000.0);
-        me.setCar(passat);
+        me.setCar(car1);
+
+        System.out.println("");
+        Car car2 = new Car("Volkswagen", "Passat", 1984, 1.9, "Red", 14000.0);
+
+        System.out.println(car1.equals(car2));
+        System.out.println("");
+
+        System.out.println(me.getCar());
+        System.out.println(me);
+        System.out.println(me.pet);
     }
 }

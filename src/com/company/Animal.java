@@ -36,6 +36,11 @@ public class Animal {
         } else {
             System.out.println("Man! Your dog is dead you cannot take him for a walk");
         }
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + species + " " + weight + "kg";
 
     }
 }

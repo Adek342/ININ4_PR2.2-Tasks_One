@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.devices.Car;
+
 public class Human {
     public Animal pet;
     public String firstName;
@@ -36,5 +38,10 @@ public class Human {
         } else {
             System.out.println("I'm sorry you can't buy this car");
         }
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
     }
 }
