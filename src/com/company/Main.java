@@ -29,6 +29,8 @@ public class Main {
         me.getSalary();
         me.setSalary(10.0);
         me.getSalary();
+        me.setSalary(20.0);
+        me.getSalary();
 
         System.out.println("");
 
@@ -47,5 +49,7 @@ public class Main {
         System.out.println(me.getCar());
         System.out.println(me);
         System.out.println(me.pet);
+
+        me.getCar().turnOn();
     }
 }
