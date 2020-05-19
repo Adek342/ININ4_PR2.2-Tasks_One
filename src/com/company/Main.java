@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.creatures.Animal;
+import com.company.creatures.Pet;
 import com.company.devices.Car;
 
 public class Main {
@@ -8,7 +10,7 @@ public class Main {
         Human me = new Human();
         me.firstName = "Jacek";
         me.lastName = "Placek";
-        me.pet = new Animal("mouse");
+        me.pet = new Pet("mouse");
         me.pet.name = "Mysza";
 
         Human cousine = new Human();

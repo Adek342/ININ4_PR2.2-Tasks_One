@@ -1,6 +1,9 @@
-package com.company;
+package com.company.creatures;
 
-public class Animal implements Salleable {
+import com.company.Human;
+import com.company.Salleable;
+
+public abstract class Animal implements Salleable {
     public final String species;
     public String name;
     protected Double weight;
