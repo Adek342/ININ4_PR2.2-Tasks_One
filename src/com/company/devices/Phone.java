@@ -1,8 +1,21 @@
 package com.company.devices;
 
 import com.company.Human;
+import java.util.ArrayList;
+import java.util.List;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class Phone extends Device {
+
+    public String Address = DEAFAULT_ADDRESS;
+    public String Protocol = DEAFAULT_PROTOCOL;
+    public String versionName = DEAFAULT_VERSION_NAME;
+
+    public static final String DEAFAULT_ADDRESS = "www.apple.com";
+    public static final String DEAFAULT_PROTOCOL = "https";
+    public static final String DEAFAULT_VERSION_NAME = "PL";
+
     protected Phone(String producer, String model, Integer yearOfProduction) {
         super(producer, model, yearOfProduction);
     }
@@ -24,5 +37,14 @@ public class Phone extends Device {
             Buyer.setPhone(this);
             Seller.setPhone(null);
         } else System.out.println("I'm sorry, you can't do this");
+    }
+
+    public void installAnnApp(String applicationName){}
+    public void installAnnApp(String applicationName, Double version){}
+    public void installAnnApp(String applicationName, String address){}
+    public void installAnnApp(List<String> applicationList){}
+    public void installAnnApp(URL urlObject){
+        this.Protocol = urlObject.getProtocol();
+        this.Address = urlObject.getHost();
     }
 }

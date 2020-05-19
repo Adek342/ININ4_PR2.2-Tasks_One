@@ -3,6 +3,7 @@ package com.company;
 import com.company.creatures.Animal;
 import com.company.creatures.Pet;
 import com.company.devices.Car;
+import com.company.devices.Diesel;
 
 public class Main {
 
@@ -29,7 +30,7 @@ public class Main {
 
         me.pet.feed();
 
-        Car car1 = new Car("Volkswagen", "Passat", 1984, 1.9, "Red", 14000.0);
+        Car car1 = new Diesel("Volkswagen", "Passat", 1984, 1.9, "Red", 14000.0);
 
         System.out.println("");
 
@@ -48,7 +49,7 @@ public class Main {
         me.setCar(car1);
 
         System.out.println("");
-        Car car2 = new Car("Volkswagen", "Passat", 1984, 1.9, "Red", 14000.0);
+        Car car2 = new Diesel("Volkswagen", "Passat", 1984, 1.9, "Red", 14000.0);
 
         System.out.println(car1.equals(car2));
         System.out.println("");
