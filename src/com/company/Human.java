@@ -1,14 +1,17 @@
 package com.company;
 
 import com.company.devices.Car;
+import com.company.devices.Phone;
 
 public class Human {
     public Animal pet;
     public String firstName;
     public String lastName;
     private Car car;
+    private Phone phone;
     private Double salary = 0.0;
     private Double lastTimeSalary = 0.0;
+    private Double cash = 0.0;
 
     public Double getSalary() {
         System.out.println("You earned " + lastTimeSalary + " in the past");
@@ -23,22 +26,29 @@ public class Human {
         } else System.out.println("It's impossible");
     }
 
+    public Double getCash() { return cash; }
+
+    public void setCash(Double cash) { this.cash = cash; }
+
     public Car getCar() {
-        System.out.print(this.firstName + " " + this.lastName + ": ");
         return car;
     }
 
     public void setCar(Car car) {
-        if (this.salary > car.value) {
-            System.out.println("You bought a car for cash");
+        //if (this.salary > car.value) {
+            //System.out.println("You bought a car for cash");
             this.car = car;
-        } else if (this.salary >= car.value / 12) {
-            System.out.println("You bought a car with a loan");
-            this.car = car;
-        } else {
-            System.out.println("I'm sorry you can't buy this car");
-        }
+        //} else if (this.salary >= car.value / 12) {
+            //System.out.println("You bought a car with a loan");
+            //this.car = car;
+        //} else {
+          //  System.out.println("I'm sorry you can't buy this car");
+        //}
     }
+
+    public Phone getPhone() { return phone; }
+
+    public void setPhone(Phone phone) { this.phone = phone; }
 
     @Override
     public String toString() {

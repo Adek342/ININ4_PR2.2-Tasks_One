@@ -11,6 +11,11 @@ public class Main {
         me.pet = new Animal("mouse");
         me.pet.name = "Mysza";
 
+        Human cousine = new Human();
+        cousine.firstName = "Grzegorz";
+        cousine.lastName = "Brzęczyszczykiewicz";
+        cousine.setCash(1500.0);
+
         me.pet.feed();
         me.pet.feed();
         me.pet.feed();
@@ -51,5 +56,9 @@ public class Main {
         System.out.println(me.pet);
 
         me.getCar().turnOn();
+
+        System.out.println("");
+
+        me.getCar().sell(cousine, me, 1000.0);
     }
 }
