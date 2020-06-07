@@ -6,9 +6,8 @@ import com.company.devices.Device;
 import com.company.devices.Phone;
 
 import java.lang.reflect.Array;
-import java.util.Comparator;
+import java.util.*;
 
-import java.util.Arrays;
 import java.util.Comparator;
 
 public class Human implements Comparator<Car>{
@@ -46,12 +45,26 @@ public class Human implements Comparator<Car>{
 
     public void setCash(Double cash) { this.cash = cash; }
 
-    public Car getCar(Integer parkingSpaceNumber) throws Exception{
+    public Car getCar(Integer parkingSpaceNumber){
+        if(garage[parkingSpaceNumber] != null) {
+            garage[parkingSpaceNumber].sellerParking = parkingSpaceNumber;
+        }
+        //garage[parkingSpaceNumber].sellerParking = parkingSpaceNumber;
             return garage[parkingSpaceNumber];
     }
 
-    public void setCar(Integer parkingSpaceNumber, Car car) {
-        garage[parkingSpaceNumber] = car;
+    public void setCar(Integer parkingSpaceNumber, Car car) throws Exception {
+       // for (int i = 0; i < garage.length; i ++) {
+            if (car != null) {
+                car.numberOfOwners++;
+                car.listOfOwners.add(this);
+            }
+                garage[parkingSpaceNumber] = car;
+
+            //if(i == garage.length-1 && garage[i] != null)
+             //   throw new Exception("This garage is full");
+       // }
+
     }
 
     public Phone getPhone() { return phone; }
@@ -90,6 +103,7 @@ public class Human implements Comparator<Car>{
         Arrays.sort(garage, this);
     }
     public void showCars(){
+        System.out.println(firstName + " " + lastName+": ");
         for(Car c: garage)
             System.out.println(c);
     }

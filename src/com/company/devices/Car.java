@@ -2,17 +2,17 @@ package com.company.devices;
 
 import com.company.Human;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
+import java.util.concurrent.CompletionService;
 
 public abstract class Car extends Device {
     final public Double engineCapacity;
     public String colour;
     public Double value;
-    Scanner scan = new Scanner(System.in);
-    int buyerParking = 0;
-    int sellerParking;
+    public int sellerParking;
+    public List<Human> listOfOwners = new ArrayList<>();
+    public int numberOfOwners = 0;
+    public int  numberOfSales = 0;
 
     public Car(String producer, String model, Integer yearOfProduction, Double engineCapacity, String colour, Double value) {
         super(producer, model, yearOfProduction);
@@ -47,8 +47,6 @@ public abstract class Car extends Device {
     public void sell(Human Buyer, Human Seller, Double Price) throws Exception {
         if (this == null)
             throw new Exception("This place is empty");
-        System.out.println("Which car for sale?");
-        sellerParking = scan.nextInt();
         if (Buyer.getCash() >= Price && Seller.getCar(sellerParking) == this) {
             System.out.println("Buyer: " + Buyer);
             System.out.println("Seller: " + Seller);
@@ -58,27 +56,48 @@ public abstract class Car extends Device {
             Seller.setCash(Seller.getCash() + Price);
             System.out.println("After transaction: " + Buyer + ": " + Buyer.getCash());
             System.out.println("After transaction " + Seller + ": " + Seller.getCash());
+            numberOfSales++;
             //TUUUUUUUUUUUUUUUUU
-            while (Buyer.getCar(buyerParking) != null) {
-                if (Buyer.getCar(buyerParking) == null) {
+            for (int i = 0; i < Buyer.garage.length; i++) {
+                if (Buyer.getCar(i) == null) {
+                    Buyer.setCar(i, Seller.getCar(sellerParking));
+                    Seller.setCar(sellerParking, null);
+                    System.out.println("Transaction was successful");
                     break;
                 }
-                if ((Buyer.garage.length - 1) == buyerParking && Buyer.getCar(Buyer.garage.length - 1) != null) {
+                if ((Buyer.garage.length - 1) == i && Buyer.getCar(Buyer.garage.length - 1) != null) {
                     throw new Exception("All parking spaces are occupied");
                 }
-                buyerParking = buyerParking + 1;
-            }
-            if (Buyer.getCar(buyerParking) == null) {
-                Buyer.setCar(buyerParking, this);
-                Seller.setCar(sellerParking, null);
-
-                System.out.println("Transaction was successful");
             }
         } else throw new
-
                 Exception("You don't have cash");
     }
 
+    public List<Human> showOwnerList()
+    {
+        if(listOfOwners.size() == 0){
+            System.out.println("The car did not yet have an owner");}
+        else
+        System.out.println(listOfOwners);
+        return listOfOwners;
+    }
+
+    public void transactionHistory()
+    {
+        if(listOfOwners.size() == 0){
+            System.out.println("No transactions have been made on this car yet");
+        }else {
+            for (int i = 0; i < listOfOwners.size() - 1; i++) {
+                System.out.println("[["+listOfOwners.get(i)+"]]" + "SELL CAR TO" + "[["+ listOfOwners.get(i + 1)+"]]");
+            }
+        }
+    }
+
+    public int getNumberOfSales() {
+        System.out.println("Number of Sales: "+ numberOfSales);
+        return numberOfSales;
+    }
 
     public abstract void refuel();
 }
+
