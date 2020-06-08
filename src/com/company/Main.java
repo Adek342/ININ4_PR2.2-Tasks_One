@@ -2,8 +2,10 @@ package com.company;
 
 import com.company.creatures.Animal;
 import com.company.creatures.Pet;
+import com.company.devices.Application;
 import com.company.devices.Car;
 import com.company.devices.Diesel;
+import com.company.devices.Phone;
 
 import java.util.Arrays;
 
@@ -49,5 +51,36 @@ public class Main {
 
         car1.getNumberOfSales();
         car2.getNumberOfSales();
+
+        System.out.println(" ");
+
+        Phone Iphone = new Phone("Apple", "10", 2019);
+        me.setPhone(Iphone);
+        System.out.println(me.getCash());
+
+        Application FlappyBird = new Application("FlappyBird", 1.1,12.0);
+        Application COD = new Application("COD", 1.2,1000.0);
+        Application HeroZero = new Application("HeroZero", 1.2,0.0);
+
+        System.out.println("");
+
+        me.getPhone().installAnnApp(FlappyBird);
+        me.getPhone().installAnnApp(COD);
+        me.getPhone().installAnnApp(HeroZero);
+
+        System.out.println("");
+
+        me.getPhone().appIsInstalled(FlappyBird);
+        me.getPhone().appIsInstalled(COD);
+
+        System.out.println("");
+
+        //me.getPhone().showFreeApps();
+        //System.out.println(me.getPhone().sum_Of_APP_Values());
+        me.getPhone().showAppsAlphabetically();
+        System.out.println("");
+        me.getPhone().showAppsByPrice();
+
+
     }
 }

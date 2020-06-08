@@ -57,7 +57,7 @@ public abstract class Car extends Device {
             System.out.println("After transaction: " + Buyer + ": " + Buyer.getCash());
             System.out.println("After transaction " + Seller + ": " + Seller.getCash());
             numberOfSales++;
-            //TUUUUUUUUUUUUUUUUU
+
             for (int i = 0; i < Buyer.garage.length; i++) {
                 if (Buyer.getCar(i) == null) {
                     Buyer.setCar(i, Seller.getCar(sellerParking));

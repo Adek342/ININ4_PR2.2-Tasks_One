@@ -69,7 +69,9 @@ public class Human implements Comparator<Car>{
 
     public Phone getPhone() { return phone; }
 
-    public void setPhone(Phone phone) { this.phone = phone; }
+    public void setPhone(Phone phone) { this.phone = phone;
+    this.phone.Owner = this;
+    }
 
     public double sum_Of_Vehicle_Values()
     {
